@@ -33,9 +33,9 @@ function printStudentList(studentList: Student[]): void {
     studentList.forEach((student: Student) => printStudent(student));
 }
 
-let paul: Student = {firstName: "Paul", secoundName: "Peterson", age: 19, gradeCertificate: [1, "C", 5, undefined, "B", undefined]};
-let lisa: Student = {firstName: "Lisa", secoundName: "Sun", age: 17, gradeCertificate: [1, "B", 2, 1, undefined, undefined]};
-let listOfStudent: Student[] = [anton, paul, lisa];
+let berta: Student = {firstName: "Berta", secoundName: "Müller", age: 17, gradeCertificate: ["A", undefined, 1]};
+let caesar: Student = {firstName: "Cäsar", secoundName: "Schmidt", age: 17, gradeCertificate: ["A", 1, undefined, 3, 2, 4, 5]};
+let listOfStudent: Student[] = [anton, berta, caesar];
 console.log(" ");
 console.log("++++++++++++++++++++++++++++++");
 printStudentList(listOfStudent);
