@@ -12,11 +12,7 @@ let anton: Student = {firstName: "Anton", secoundName: "Meier", age: 17, gradeCe
 function printStudent(student: Student): void {
     console.log(" ");
     console.log(`${student.firstName} ${student.secoundName} (${student.age})`);
-    let line: string = "";
-    for(let i: number = 0; i < 30; i++){
-        line += "=";
-    }
-    console.log(line);
+    createLine(student);
     let grade = student.gradeCertificate.map((grade) => grade === undefined ? "*" : grade);
     console.log(`Noten: ${grade}`);
 }
@@ -39,3 +35,20 @@ let listOfStudent: Student[] = [anton, berta, caesar];
 console.log(" ");
 console.log("++++++++++++++++++++++++++++++");
 printStudentList(listOfStudent);
+
+function createLine(student: Student):void{
+    let line: string = "";
+
+    for(let i: number = 0; i < calculateNumber(student); i++){
+        line += "=";
+    }
+    console.log(line);
+}
+
+function calculateNumber(student: Student): number{
+    let spaceAndbrackets: number = 2 + 2;
+    let result: number = 0;
+    result += student.firstName.length + student.secoundName.length;
+    result += (student.age < 10 ? 1 : 2) + spaceAndbrackets;
+    return result;
+}
