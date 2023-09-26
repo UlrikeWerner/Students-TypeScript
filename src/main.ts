@@ -1,4 +1,4 @@
-type Grade = 1 | 2 | 3 | 4 | 5 | 6 | "A" | "B" | "C" | "D" | "E" | "F";
+type Grade = 1 | 2 | 3 | 4 | 5 | 6 | "A" | "B" | "C" | "D" | "E" | "F" | undefined;
 
 type Student = {
     firstName: string
@@ -17,10 +17,14 @@ function printStudent(student: Student): void {
         line += "=";
     }
     console.log(line);
-    console.log(`Noten: ${student.gradeCertificate}`);
+    let grade = student.gradeCertificate.map((grade) => grade === undefined ? "*" : grade);
+    console.log(`Noten: ${grade}`);
 }
 
 printStudent(anton);
 
 anton.gradeCertificate = ["A", 2, "F", 3, 1, "B", 2, 5];
+printStudent(anton);
+
+anton.gradeCertificate = ["A", 2, undefined, 3, 1, "B", undefined, 5];
 printStudent(anton);
